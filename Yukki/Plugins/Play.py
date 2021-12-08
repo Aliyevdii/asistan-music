@@ -39,7 +39,7 @@ async def play(_, message: Message):
         db_mem[message.chat.id] = {}
     if message.sender_chat:
         return await message.reply_text(
-            "You're an __Anonymous Admin__ in this Chat Group!\nRevert back to User Account From Admin Rights."
+            "Siz bu Çat Qrupunda __Anonim Admin__siniz!\nİdarəetmə Hüquqlarından İstifadəçi Hesabına qayıdın."
         )
     audio = (
         (message.reply_to_message.audio or message.reply_to_message.voice)
@@ -49,18 +49,18 @@ async def play(_, message: Message):
     url = get_url(message)
     if audio:
         mystic = await message.reply_text(
-            "🔄 Processing Audio... Please Wait!"
+            "🔄 Audio emal olunur... Lütfən gözləyin!"
         )
 
         if audio.file_size > 157286400:
             return await mystic.edit_text(
-                "Audio File Size Should Be Less Than 150 mb"
+                "Audio Fayl Ölçüsü Bundan Kiçik Ola bilər 150 mb"
             )
         duration_min = seconds_to_min(audio.duration)
         duration_sec = audio.duration
         if (audio.duration) > DURATION_LIMIT:
             return await mystic.edit_text(
-                f"**Duration Limit Exceeded**\n\n**Allowed Duration: **{DURATION_LIMIT_MIN} minute(s)\n**Received Duration:** {duration_min} minute(s)"
+                f"**Müddət Limiti keçdi**\n\n**İcazə Verilən Müddət: **{DURATION_LIMIT_MIN} dəqiqə(s)\n**Qəbul müddəti:** {duration_min} Saniyə(s)"
             )
         file_name = (
             audio.file_unique_id
@@ -81,13 +81,13 @@ async def play(_, message: Message):
             message,
             file,
             "smex1",
-            "Given Audio Via Telegram",
+            "Telegram vasitəsilə audio verilir",
             duration_min,
             duration_sec,
             mystic,
         )
     elif url:
-        mystic = await message.reply_text("🔄 Processing URL... Please Wait!")
+        mystic = await message.reply_text("🔄 URL emal olunur... Lütfən gözləyin!")
         query = message.text.split(None, 1)[1]
         (
             title,
@@ -100,7 +100,7 @@ async def play(_, message: Message):
         buttons = url_markup2(videoid, duration_min, message.from_user.id)
         return await message.reply_photo(
             photo=thumb,
-            caption=f"📎Title: **{title}\n\n⏳Duration:** {duration_min} Mins\n\n__[Get Additional Information About Video](https://t.me/{BOT_USERNAME}?start=info_{videoid})__",
+            caption=f"📎Başlıq: **{title}\n\n⏳Müddət:** {duration_min} Saniyə\n\n__[Video Haqqında Əlavə Məlumat Alın](https://t.me/{BOT_USERNAME}?start=info_{videoid})__",
             reply_markup=InlineKeyboardMarkup(buttons),
         )
     else:
@@ -111,12 +111,12 @@ async def play(_, message: Message):
             await message.reply_photo(
                 photo="Utils/Playlist.jpg",
                 caption=(
-                    "**Usage:** /play [Music Name or Youtube Link or Reply to Audio]\n\nIf you want to play Playlists! Select the one from Below."
+                    "**Usage:** /play [Musiqi Adı və ya Youtube Linki və ya Audioya Cavab]\in\Pleylistləri oynamaq istəyirsinizsə! Aşağıdan birini seçin."
                 ),
                 reply_markup=InlineKeyboardMarkup(buttons),
             )
             return
-        mystic = await message.reply_text("🔍 **Searching**...")
+        mystic = await message.reply_text("🔍 **Axtarılır**...")
         query = message.text.split(None, 1)[1]
         (
             title,
@@ -131,7 +131,7 @@ async def play(_, message: Message):
         )
         return await message.reply_photo(
             photo=thumb,
-            caption=f"📎Title: **{title}\n\n⏳Duration:** {duration_min} Mins\n\n__[Get Additional Information About Video](https://t.me/{BOT_USERNAME}?start=info_{videoid})__",
+            caption=f"📎Başlıq: **{title}\n\n⏳Müddət:** {duration_min} Saniyə\n\n__[Video Haqqında Əlavə Məlumat Alın](https://t.me/{BOT_USERNAME}?start=info_{videoid})__",
             reply_markup=InlineKeyboardMarkup(buttons),
         )
 
@@ -147,21 +147,21 @@ async def startyuplay(_, CallbackQuery):
     videoid, duration, user_id = callback_request.split("|")
     if str(duration) == "None":
         return await CallbackQuery.answer(
-            f"Sorry! Its a Live Video.", show_alert=True
+            f"Bağışlayın! Canlı Videodur.", show_alert=True
         )
     if CallbackQuery.from_user.id != int(user_id):
         return await CallbackQuery.answer(
-            "This is not for you! Search You Own Song.", show_alert=True
+            "Bu sizin üçün deyil! Öz mahnını axtar.", show_alert=True
         )
     await CallbackQuery.message.delete()
     title, duration_min, duration_sec, thumbnail = get_yt_info_id(videoid)
     if duration_sec > DURATION_LIMIT:
         return await CallbackQuery.message.reply_text(
-            f"**Duration Limit Exceeded**\n\n**Allowed Duration: **{DURATION_LIMIT_MIN} minute(s)\n**Received Duration:** {duration_min} minute(s)"
+            f"**Müddət Limiti keçdi**\n\n**İcazə Verilən Müddət: **{DURATION_LIMIT_MIN} dəqiqə(s)\n**Qəbul müddəti:** {duration_min} dəqiqə(s)"
         )
     await CallbackQuery.answer(f"Processing:- {title[:20]}", show_alert=True)
     mystic = await CallbackQuery.message.reply_text(
-        f"**{MUSIC_BOT_NAME} Downloader**\n\n**Title:** {title[:50]}\n\n0% ▓▓▓▓▓▓▓▓▓▓▓▓ 100%"
+        f"**{MUSIC_BOT_NAME} Yükləyici**\n\n**Başlıq:** {title[:50]}\n\n0% ▓▓▓▓▓▓▓▓▓▓▓▓ 100%"
     )
     downloaded_file = await loop.run_in_executor(
         None, download, videoid, mystic, title
@@ -169,7 +169,7 @@ async def startyuplay(_, CallbackQuery):
     raw_path = await convert(downloaded_file)
     theme = await check_theme(chat_id)
     chat_title = await specialfont_to_normal(chat_title)
-    thumb = await gen_thumb(thumbnail, title, user_id, theme, chat_title)
+    thumb = await gen_thumb(miniatür, başlıq, istifadəçi_id, mövzu, söhbət_başlığı)
     if chat_id not in db_mem:
         db_mem[chat_id] = {}
     await start_stream(
@@ -191,15 +191,15 @@ async def search_query_more(_, CallbackQuery):
     query, user_id = callback_request.split("|")
     if CallbackQuery.from_user.id != int(user_id):
         return await CallbackQuery.answer(
-            "Search Your Own Music. You're not allowed to use this button.",
+            "Öz Musiqini Axtar. Bu düymədən istifadə etməyə icazəniz yoxdur.",
             show_alert=True,
         )
-    await CallbackQuery.answer("Searching More Results")
+    await CallbackQuery.answer("Daha çox nəticə axtarılır")
     results = YoutubeSearch(query, max_results=5).to_dict()
     med = InputMediaPhoto(
         media="Utils/Result.JPEG",
         caption=(
-            f"1️⃣<b>{results[0]['title']}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{results[0]['id']})__</u>\n\n2️⃣<b>{results[1]['title']}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{results[1]['id']})__</u>\n\n3️⃣<b>{results[2]['title']}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{results[2]['id']})__</u>\n\n4️⃣<b>{results[3]['title']}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{results[3]['id']})__</u>\n\n5️⃣<b>{results[4]['title']}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{results[4]['id']})__</u>"
+            f"1️⃣<b>{results[0]['title']}</b>\n  ┗  🔗 <u>__[Əlavə məlumat əldə edin](https://t.me/{BOT_USERNAME}?start=info_{results[0]['id']})__</u>\n\n2️⃣<b>{results[1]['title']}</b>\n  ┗  🔗 <u>__[Əlavə məlumat əldə edin](https://t.me/{BOT_USERNAME}?start=info_{results[1]['id']})__</u>\n\n3️⃣<b>{results[2]['title']}</b>\n  ┗  🔗 <u>__[Əlavə məlumat əldə edin](https://t.me/{BOT_USERNAME}?start=info_{results[2]['id']})__</u>\n\n4️⃣<b>{results[3]['title']}</b>\n  ┗  🔗 <u>__[Əlavə məlumat əldə edin](https://t.me/{BOT_USERNAME}?start=info_{results[3]['id']})__</u>\n\n5️⃣<b>{results[4]['title']}</b>\n  ┗  🔗 <u>__[Əlavə məlumat əldə edin](https://t.me/{BOT_USERNAME}?start=info_{results[4]['id']})__</u>"
         ),
     )
     buttons = search_markup(
@@ -248,7 +248,7 @@ async def popat(_, CallbackQuery):
             query,
         )
         await CallbackQuery.edit_message_text(
-            f"6️⃣<b>{results[5]['title']}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{results[5]['id']})__</u>\n\n7️⃣<b>{results[6]['title']}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{results[6]['id']})__</u>\n\n8️⃣<b>{results[7]['title']}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{results[7]['id']})__</u>\n\n9️⃣<b>{results[8]['title']}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{results[8]['id']})__</u>\n\n🔟<b>{results[9]['title']}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{results[9]['id']})__</u>",
+            f"6️⃣<b>{results[5]['title']}</b>\n  ┗  🔗 <u>__[Əlavə məlumat əldə edin](https://t.me/{BOT_USERNAME}?start=info_{results[5]['id']})__</u>\n\n7️⃣<b>{results[6]['title']}</b>\n  ┗  🔗 <u>__[Əlavə məlumat əldə edin](https://t.me/{BOT_USERNAME}?start=info_{results[6]['id']})__</u>\n\n8️⃣<b>{results[7]['title']}</b>\n  ┗  🔗 <u>__[Əlavə məlumat əldə edin](https://t.me/{BOT_USERNAME}?start=info_{results[7]['id']})__</u>\n\n9️⃣<b>{results[8]['title']}</b>\n  ┗  🔗 <u>__[Əlavə məlumat əldə edin](https://t.me/{BOT_USERNAME}?start=info_{results[8]['id']})__</u>\n\n🔟<b>{results[9]['title']}</b>\n  ┗  🔗 <u>__[Əlavə məlumat əldə edin](https://t.me/{BOT_USERNAME}?start=info_{results[9]['id']})__</u>",
             reply_markup=InlineKeyboardMarkup(buttons),
         )
         disable_web_page_preview = True
@@ -269,7 +269,7 @@ async def popat(_, CallbackQuery):
             query,
         )
         await CallbackQuery.edit_message_text(
-            f"1️⃣<b>{results[0]['title']}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{results[0]['id']})__</u>\n\n2️⃣<b>{results[1]['title']}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{results[1]['id']})__</u>\n\n3️⃣<b>{results[2]['title']}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{results[2]['id']})__</u>\n\n4️⃣<b>{results[3]['title']}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{results[3]['id']})__</u>\n\n5️⃣<b>{results[4]['title']}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{results[4]['id']})__</u>",
+            f"1️⃣<b>{results[0]['title']}</b>\n  ┗  🔗 <u>__[Əlavə məlumat əldə edin](https://t.me/{BOT_USERNAME}?start=info_{results[0]['id']})__</u>\n\n2️⃣<b>{results[1]['title']}</b>\n  ┗  🔗 <u>__[Əlavə məlumat əldə edin](https://t.me/{BOT_USERNAME}?start=info_{results[1]['id']})__</u>\n\n3️⃣<b>{results[2]['title']}</b>\n  ┗  🔗 <u>__[Əlavə məlumat əldə edin](https://t.me/{BOT_USERNAME}?start=info_{results[2]['id']})__</u>\n\n4️⃣<b>{results[3]['title']}</b>\n  ┗  🔗 <u>__[Əlavə məlumat əldə edin](https://t.me/{BOT_USERNAME}?start=info_{results[3]['id']})__</u>\n\n5️⃣<b>{results[4]['title']}</b>\n  ┗  🔗 <u>__[Əlavə məlumat əldə edin](https://t.me/{BOT_USERNAME}?start=info_{results[4]['id']})__</u>",
             reply_markup=InlineKeyboardMarkup(buttons),
         )
         disable_web_page_preview = True
@@ -283,7 +283,7 @@ async def slider_query_results(_, CallbackQuery):
     what, type, query, user_id = callback_request.split("|")
     if CallbackQuery.from_user.id != int(user_id):
         return await CallbackQuery.answer(
-            "Search Your Own Music. You're not allowed to use this button.",
+            "Öz Musiqini Axtar. Bu düymədən istifadə etməyə icazəniz yoxdur.",
             show_alert=True,
         )
     what = str(what)
@@ -293,7 +293,7 @@ async def slider_query_results(_, CallbackQuery):
             query_type = 0
         else:
             query_type = int(type + 1)
-        await CallbackQuery.answer("Getting Next Result", show_alert=True)
+        await CallbackQuery.answer("Növbəti Nəticənin Alınması", show_alert=True)
         (
             title,
             duration_min,
@@ -306,7 +306,7 @@ async def slider_query_results(_, CallbackQuery):
         )
         med = InputMediaPhoto(
             media=thumb,
-            caption=f"📎Title: **{title}\n\n⏳Duration:** {duration_min} Mins\n\n__[Get Additional Information About Video](https://t.me/{BOT_USERNAME}?start=info_{videoid})__",
+            caption=f"📎Başlıq: **{title}\n\n⏳Müddət:** {duration_min} saniyə\n\n__[Video Haqqında Əlavə Məlumat Alın](https://t.me/{BOT_USERNAME}?start=info_{videoid})__",
         )
         return await CallbackQuery.edit_message_media(
             media=med, reply_markup=InlineKeyboardMarkup(buttons)
@@ -316,7 +316,7 @@ async def slider_query_results(_, CallbackQuery):
             query_type = 9
         else:
             query_type = int(type - 1)
-        await CallbackQuery.answer("Getting Previous Result", show_alert=True)
+        await CallbackQuery.answer("Əvvəlki Nəticənin Alınması", show_alert=True)
         (
             title,
             duration_min,
@@ -329,7 +329,7 @@ async def slider_query_results(_, CallbackQuery):
         )
         med = InputMediaPhoto(
             media=thumb,
-            caption=f"📎Title: **{title}\n\n⏳Duration:** {duration_min} Mins\n\n__[Get Additional Information About Video](https://t.me/{BOT_USERNAME}?start=info_{videoid})__",
+            caption=f"📎Başlıq: **{title}\n\n⏳Müddət:** {duration_min} Mins\n\n__[Video Haqqında Əlavə Məlumat Alın](https://t.me/{BOT_USERNAME}?start=info_{videoid})__",
         )
         return await CallbackQuery.edit_message_media(
             media=med, reply_markup=InlineKeyboardMarkup(buttons)
