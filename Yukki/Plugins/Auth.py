@@ -1,3 +1,4 @@
+
 from pyrogram import Client, filters
 from pyrogram.types import Message
 
@@ -156,3 +157,165 @@ async def authusers(_, message: Message):
             msg += f"{j}➤ {user}[`{user_id}`]\n"
             msg += f"    ┗ Added By:- {admin_name}[`{admin_id}`]\n\n"
         await m.edit_text(msg)
+
+müştəri idxal Tortlar, filtreler
+pirogramdan.idxal mesaj növləri
+
+Yukki 'den SUDOERS' i idxal edin, ərizə
+Yukka ' dan.Verilənlər bazası idxal (_get_authusers, silinmə_authuser, get_authuser,
+get_authuser_count, get_authuser_names,
+saxlanma_touser)
+Yukka ' dan.Dekoratorlar.administratorlar İnzibati məlumatları idxal edirlər
+Yukki-dən.Kommunal xidmətlər.idxal dəyişikliklər (alpha_to_ınt, ınt_to_alpha,
+time_to_seconds)
+
+__ Modul _ _ _ = "istifadəçilərin avtorizasiyası"
+__ Yardım__="""
+
+** Qeyd:**
+- Authentication istifadəçilər hətta administrator hüquqları olmadan səs sohbetler davam dayandırmaq, fasilə, atlayabilir.
+
+
+/ avtorizasiya [istifadəçi adı və ya mesaj cavab] 
+- Əlavə etmək üçün istifadəçi SİYAHISI GİRİŞ qruplar.
+
+/ icazəsiz [istifadəçi adı və ya mesaj cavab] 
+- Aradan qaldırılması istifadəçi SİYAHISI GİRİŞ qruplar.
+
+/ avtorizatorlar 
+- Yoxlayın SİYAHISI GİRİŞ qruplar.
+"""
+
+
+@app.on_message (komanda filters.("avtorizasiya") və filters qrupu.)
+@Adminactual
+asynchronous identifikasiyası ( _ , mesaj: mesaj):
+    heç bir mesaj yoxdur.reply_to_message:
+        əgər len (mesaj.komanda)!= 2:
+            mesajı gözləyir.reply_text(
+                "İstifadəçi mesajına cavab verin və ya istifadəçi adı/istifadəçi identifikatorunu göstərin."
+            )
+            qaytar
+        istifadəçi = mesaj.mətn.ayrılıq (No 1)[1]
+        əgər " @ " istifadəçi:
+            user = istifadəçi.əvəz("@", "")
+        istifadəçi = app gözləyir . get_users(istifadəçi)
+        istifadəçi id = message.from_user.ıd
+        Token = ınt_to_alpha gözləyir(user.id)
+        istifadəçi adı = mesajı.istifadəçi adı.adya_fail
+        istifadəçi adı_ıd= message.from_user.id
+        _check = ad_torlaşdırılmış istifadəçilərin alınmasını gözləyin(message.chat.id)
+        sayı = 0
+        _check da smex üçün:
+            sayı += 1
+        ınt(miqdarı) == 20 varsa:
+            gözləyən mesajı qaytarın.reply_text(
+                "Qruplarınızın Səlahiyyətli istifadəçiləri siyahısında (AUL) yalnız 20 istifadəçi ola bilər"
+            )
+        mö ' cüzə _check deyilsə:
+            Assis = {
+                "auth_user_ıd istifadəçi identifikatoru": user.id,
+"istifadəçi adı": istifadəçi.istifadəçi adı,
+                "admin ID": istifadəçi ID,
+"Admin Adı": istifadəçi adı,
+            }
+            saxlanmanın gözlənilməsi istifadəçi_avtobusu(message.chat.id, Token, Assis)
+            mesajı gözləyir.reply_text(
+                f "bu qrupun Səlahiyyətli istifadəçilərinin siyahısına əlavə edildi".
+            )
+            qaytar
+        hələ:
+            mesajı gözləyir.reply_text (F "artıq səlahiyyətli istifadəçilər siyahısında".)
+        qaytar
+    istifadəçi adı_ıd= message.from_user.id
+    istifadəçi id = message.reply_to_message.from_user.ıd
+    istifadəçi adı = mesajı.reply_to_message.istifadəçi.adya_fail
+    Token = ınt_to_alpha (istifadəçi identifikatoru)
+    istifadəçi adı = mesajı.istifadəçi adı.adya_fail
+    _check = ad_torlaşdırılmış istifadəçilərin alınmasını gözləyin(message.chat.id)
+    sayı = 0
+    _check da smex üçün:
+        sayı += 1
+    ınt(miqdarı) == 20 varsa:
+        gözləyən mesajı qaytarın.reply_text(
+            "Qruplarınızın Səlahiyyətli istifadəçiləri siyahısında (AUL) yalnız 20 istifadəçi ola bilər"
+        )
+    mö ' cüzə _check deyilsə:
+        Assis = {
+            "auth_user_id": istifadəçi ıd,
+"istifadəçi adı": istifadəçi adı,
+            "admin ID": istifadəçi ID,
+"Admin Adı": istifadəçi adı,
+        }
+        saxlanmanın gözlənilməsi istifadəçi_avtobusu(message.chat.id, Token, Assis)
+        mesajı gözləyir.reply_text(
+            f "bu qrupun Səlahiyyətli istifadəçilərinin siyahısına əlavə edildi".
+        )
+        qaytar
+    hələ:
+        mesajı gözləyir.reply_text (F "artıq səlahiyyətli istifadəçilər siyahısında".)
+
+
+@app.on_message (komanda filters.("icazəsiz") və filters.group)
+@Adminactual
+asynchronous ağ siyahı qorunması_chat_func ( _ , mesaj: mesaj):
+    heç bir mesaj yoxdur.reply_to_message:
+        əgər len (mesaj.komanda)!= 2:
+            mesajı gözləyir.reply_text(
+                "İstifadəçi mesajına cavab verin və ya istifadəçi adı/istifadəçi identifikatorunu göstərin."
+            )
+            qaytar
+        istifadəçi = mesaj.mətn.ayrılıq (No 1)[1]
+        əgər " @ " istifadəçi:
+            user = istifadəçi.əvəz("@", "")
+        istifadəçi = app gözləyir . get_users(istifadəçi)
+        Token = ınt_to_alpha gözləyir(user.id)
+        silindi = silmə gözləyir_avtobuser istifadəçi(message.chat.id, Token)
+        silindi varsa:
+            gözləyən mesajı qaytarın.reply_text(
+                f "bu qrupun Səlahiyyətli istifadəçilərinin siyahısından silindi".
+            )
+        hələ:
+            gözləyən mesajı qaytarın.reply_text (f "qeyri-səlahiyyətli istifadəçi".)
+    istifadəçi id = message.reply_to_message.from_user.ıd
+    Token = ınt_to_alpha (istifadəçi identifikatoru)
+    silindi = silmə gözləyir_avtobuser istifadəçi(message.chat.id, Token)
+    silindi varsa:
+        gözləyən mesajı qaytarın.reply_text(
+            f "bu qrupun Səlahiyyətli istifadəçilərinin siyahısından silindi".
+        )
+    hələ:
+        gözləyən mesajı qaytarın.reply_text (f "qeyri-səlahiyyətli istifadəçi".)
+
+
+@app.on_message (filters.komanda ("istifadəçilər") və filters.group)
+asynchronous istifadəçi tərifi ( _ , mesaj: mesaj):
+    _playlist = ad_torlaşdırılmış istifadəçilərin alınmasını gözləyir(message.chat.id)
+    _pleylist yoxsa:
+        gözləyən mesajı qaytarın.reply_text(
+            f " bu qrupda səlahiyyətli istifadəçilər yoxdur.\ N \ NADD / icazə istifadə edərək, istifadəçilər authenticate və /unauthenticated istifadə edərək aradan qaldırılması ."
+        )
+    hələ:
+        j = 0
+        m = mesaj gözləyir.reply_text(
+            "Səlahiyyətli İstifadəçilərin Seçimi... Xahiş Edirik Gözləyin"
+        )
+        msg = f "səlahiyyətli istifadəçilərin * * siyahısı[AUL]: * * \ n \ n"
+        _playlist qeydlər üçün:
+            _ qeyd = get_authuser gözləyir(message.chat.id, qeyd)
+            istifadəçi id = _ qeyd["istifadəçi id"]
+            istifadəçi adı = _ qeyd["istifadəçi adı"]
+            admin_ıd = _ qeyd["admin ID"]
+            nazir müavini imya_ad = _ qeyd ["nazir müavini imya_ad"]
+            nümunə:
+                istifadəçi = app gözləyir . get_users(ıd istifadəçi)
+                user = istifadəçi.adya_fail
+                j+= 1
+            istisna olmaqla:
+                davam
+            msg + = f"{j} {istifadəçi}[`{istifadəçi identifikatoru}`]\n"
+            msg + = f " əlavə edildi: - {Admin Adı} ['{admin ID}'] \ n \ n"
+        gözləmə m.edit_text(yazı)
+Yandex uses essential, analytical, marketing and other cookies. These files are necessary to ensure smooth operation of all Yandex sites and services, they help us remember you and your personal settings. For details, please read our Cookie Policy.
+View my options
+Accept
