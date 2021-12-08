@@ -1,3 +1,4 @@
+
 import asyncio
 import os
 import random
@@ -565,3 +566,247 @@ async def good(_, CallbackQuery):
     await CallbackQuery.edit_message_reply_markup(
         reply_markup=InlineKeyboardMarkup(buttons)
     )
+
+idxal asyncio
+idxal OS
+idxal təsadüfi
+asyncio olan yolu boş növbəsində idxal
+
+konfiqurasiyadan get_queue-ni idxal edin
+pyrogram-dan filtrləri idxal edin
+pyrogram-dan.types idxal InlineKeyboardMarkup
+pytgcalls-dən axın növünü idxal edin
+pytgcalls həyata.types.ınput_stream giriş audio axınını, giriş axınını idxal edir
+
+Yukki-dən BOT_USERNAME, MUSİC_BOT_NAME, proqram, db_mem idxal
+Yukki-dən.Core.PYTG idxal queue, Yukki çağırır
+Yukki-dən.Core.Trial zənglər.Çevirmək Converter idxal
+Yukki-dən.Core.Trial zənglər.Yükləyici yükləməni idxal edir
+Yukki ilə.Verilənlər bazası idxal (_get_playlist, delete_playlist, get_playlist),
+                            get_playlıst_names, ıs_actıve_chat, playlist qazanc)
+Yukka ' dan.Verilənlər bazası.idxal növbə (add_actıve_chat, ıs_actıve_chat,
+is_music_playing, music_off, music_on,
+remove_active_chat)
+Yukki-dən.Dekoratorlar.administrators AdminRightsCheckCB idxal
+Yukki-dən.Dekoratorlar.Checker idxal encoder
+Yukka ' dan.Daxili idxal (audio_markup, audio_markup2, Yüklə,
+fetch_playlist, paste_queue_markup, primary_markup)
+Yukka ' dan.Kommunal xidmətlər.decains vaxt_to_tseconds idxal
+Yukka ' dan.Kommunal xidmətlər.chat xüsusi font_to_normal idxal edir
+Yukka ' dan.Kommunal xidmətlər.idxal ıspreviup, paste_queue daxil edin
+Yukki-dən.Kommunal xidmətlər.check_theme idxal mövzusu
+Yukki-dən.Kommunal xidmətlər.kiçik idxal gen_thumb
+Yukki-dən.Kommunal xidmətlər.timer start_timer idxal
+Yukki-dən.Kommunal xidmətlər.idxal youtube get_yt_info_id
+
+loop = asyncio.get_event_loop()
+
+
+@app.on_callback_query (filtreler.Daimi ifadə ("məcburi bağlanma"))
+məcburi asynchronous qorunması aradan qaldırılması (_, callback sorğu):
+    callback_data = zəng sorğusu.məlumat.zolaq()
+    callback_request = callback_data.split (heç bir, 1)[1]
+    sorğu, istifadəçi identifikatoru = tərs zəng_request.split("|")
+    əgər CallbackQuery.from_user.ıd != ınt(istifadəçi ID):
+        geri çağırmağı gözləyən qaytarın.cavab(
+            "Bunu bağlamanıza icazə verilmir"., göstər_alert=həqiqət
+        )
+    zəng gözləyirik.mesaj.(sil)
+    zəng gözləyirik.cavab()
+
+
+@ app .on_callback_ sorğu(
+    filters.Daimi ifadə(şablon=r"^(fasilə|atlama|Stop|Resume)$")
+)
+@ adminrightscheckcb - admin
+@checkercb
+asynchronous administrator hüquqlarının qorunması ( _ , geri çağırma sorğusu):
+    qlobal get_queue
+    command = zəng sorğu.uyğun[0].qrup(1)
+    əgər yoxsa, ıs_active_chat gözləyin (CallbackQuery.message.chat.id):
+        geri çağırmağı gözləyən qaytarın.cavab(
+            "Səsli söhbətdə heç bir şey təkrarlanmır"., göstər_alert=həqiqət
+        )
+    ıd chat = CallbackQuery.message.chat.ıd
+    komanda = = "fasilə":
+        əgər yoxsa, ıs_music_playing (chat ID)gözləyin:
+            geri çağırmağı gözləyən qaytarın.cavab(
+                "Musiqi artıq dayandırılıb", şou=həqiqət
+            )
+        music_off (chat ID)gözləyir
+        Yukki gözləyir.pytgcalls.pause_stream(ıd chat)
+        zəng gözləyirik.mesaj.cavab_text(
+            F " The Voice Chat {əks-sorğu dayandırılıb.istifadəçi.qeyd}!",
+reply_markup=audio_markup2,
+        )
+        zəng gözləyirik.mesaj.(sil)
+        zəng gözləyirik.cavab ("dayandırılıb", göstərmə=həqiqət)
+    əgər komanda = = "işə davam et":
+        ıs_music_playing (chat ID)gözləyir:
+            geri çağırmağı gözləyən qaytarın.cavab(
+                "Musiqi artıq bərpa olunub"., göstər_alert=həqiqət
+            )
+        music_on(chat ID)gözləyir
+        Yukki gözləyir.pytgcalls.resume_stream(ıd chat)
+        zəng gözləyirik.mesaj.cavab_text(
+            f " The Voice Chat {əks-sorğu ilə bərpa olunur.istifadəçi.qeyd}!",
+reply_markup=audio_markup2,
+        )
+        zəng gözləyirik.mesaj.(sil)
+        zəng gözləyirik.cavab ("bərpa", göstərmə=həqiqət)
+    komanda =="stopcb":
+        nümunə:
+            Növbə.clear (chat ID)
+        boş növbə istisna olmaqla:
+            keçmək
+        gözləmə silinmə_aktiv_cat (çat identifikatoru)
+        Yukki gözləyin.pytgcalls.buraxın_group_caler (chat ID)
+        zəng gözləyirik.mesaj.cavab_text(
+            f " the səsli söhbət tamamlandı/dayandırıldı {əks-sorğu.istifadəçi.qeyd}!",
+reply_markup=audio_markup2,
+        )
+        zəng gözləyirik.mesaj.(sil)
+        zəng gözləyirik.cavab ("dayandırılıb", göstərmə=həqiqət)
+    komanda =="skipcb":
+        Növbə.task_done(ıd chat)
+        növbə varsa. is_empty (chat ID):
+            gözləmə silinmə_aktiv_cat (çat identifikatoru)
+            zəng gözləyirik.mesaj.cavab_text(
+                f " __Queue _ \n\n səs chat tərk artıq musiqi..Istifadə button: - {əks sorğu.istifadəçi.yada sal}"
+            )
+            Yukki gözləyin.pytgcalls.buraxın_group_caler (chat ID)
+            zəng gözləyirik.mesaj.(sil)
+            zəng gözləyirik.cavab(
+                "Buraxılmış. Növbə No daha çox musiqi", göstər_alert = həqiqət
+            )
+            qaytar
+        hələ:
+            Videoid = növbə.alın (chat ID) ["fayl"]
+            got_queue = get_queue. almaq(CallbackQuery.message.chat.id)
+            got_queue əgər:
+                got_queue.pop(0)
+            finxx = f " {videoıd[0]}{videoıd [1]}{videoıd[2]}"
+            aud = 0
+            əgər str(finxx)! = "işlənməmiş":
+                zəng gözləyirik.mesaj.(sil)
+                zəng gözləyirik.cavab(
+                    "Buraxılmış! Playlist playback....", göstər=həqiqət
+                )
+                Mystic = callback gözləyir.mesaj.cavab_text(
+                    f " * * {MUSİQİ_MUSE_BOTA} oxutma funksiyası * * \n \ n__ _ növbəti musiqini çalğı siyahısından Yükləyin...._Istifadə _ \n \ pbutton: - {callback sorğu.istifadəçi.yada sal}"
+                )
+                (
+adı,
+müddəti_min,
+uzunluq_sek,
+                    miniatür,
+) = get_yt_info_id(видеоид)
+                mistisizmi gözləyin.Sinaqoqlar fəsiləsinin
+                    f " **{ADI_MUSES} Uploader**\n\n * * Title: * * {adı[:50]} \ n \ n0% ▓▓▓▓▓▓▓▓▓▓▓▓ 100%"
+                )
+                yüklənmiş fayl = gözləmə dövrü.run_in_executor(
+                    Xeyr, Yüklə, Video, mistisizm, adı
+                )
+                = gözləmə dönüşüm (nazil fayl)
+                Yukki gözləyir.pytgcalls.dəyişiklik_potok(
+                    identifikator
+chat, giriş stream(
+                        Input audio stream(
+                            raw_path,
+),
+),
+)
+                mövzu = gözləmə yoxlamalar_temlər (chat ID)
+                chat_title = xüsusi font_to_normal üçün gözləmə(
+                    Zəng sorğusu.mesaj.chat.başlıq
+                )
+                thumb = gen_thumb gözləyir ( 
+                    miniatür,
+başlıq,
+CallbackQuery.from_user.id,
+mövzu,
+                    söhbət başlığı,
+)
+                düymələr = ilkin qeyd(
+                    azeri porno,
+CallbackQuery.from_user.id,
+müddəti_min,
+müddəti_min,
+)
+                mistisizm gözləyir.(sil)
+                qeyd = db_mem[video] ["istifadəçi adı"]
+                final_output = callback gözləyir.mesaj.cavab_photo(
+                    şəkil = thumb,
+                    reply_markup= ınlinekeyboardmarkup(düymələri),
+imza=(
+                        f " <b>__səs chat buraxılmış__ _ < /b > \ n\n<b>____oynamağa başladı: _ _ _ < /b>[{adı [:25]}] (https://www.youtube.com/watch?v = {videoid}) \n<b>_duration:__ _ < / b> {davamiyyət_min} dəqiqə\n** _ tələb: _ _ * * {qeyd}"
+                    ),
+                )
+                os.sil (thumb)
+
+            hələ:
+                zəng gözləyirik.mesaj.(sil)
+                gözləmə sorğu geri zəng.cavab ("buraxılmış!"göstər_alert=həqiqət)
+                Yukki gözləyir.pytgcalls.dəyişiklik_potok(
+                    identifikator
+chat, giriş stream(
+                        Input audio stream(
+                            azeri porno,
+),
+),
+)
+                AFK = videoid
+                title = db_mem[videoıd] ["title"]
+                duration_min = db_mem[videoıd]["duration"]
+                duratıon_sec = ınt(vaxt_to_tecunds (uzunluq_min))
+                qeyd = db_mem[video] ["istifadəçi adı"]
+                videoıd = db_mem[videoıd] ["videoıd"]
+                əgər str(video)=="smex1":
+                    düymələr = düymələr = Audio markalanma(
+                        azeri porno,
+CallbackQuery.from_user.id,
+müddəti_min,
+müddəti_min,
+)
+                    thumb = "Utils/Telegram.JPEG "
+                    aud = 1
+                hələ:
+                    _pat_ = _pat_ = (
+(str(afc))
+                        .dəyişdirin("_", "", 1)
+                        .dəyişdirin("/", "", 1)
+                        .dəyişdirin(".", "", 1)
+                    )
+                    thumb = f"cache/{_path_}Ultimate . png"
+                    düymələr = ilkin qeyd(
+                        azeri porno,
+CallbackQuery.from_user.id,
+müddəti_min,
+müddəti_min,
+)
+                final_output = callback gözləyir.mesaj.cavab_photo(
+                    şəkil = thumb,
+                    reply_markup = xətti etiketləmə (düymələr),
+                    imza = e " < b>__ _ səs chat buraxılmış</b><b>________oynamağa başladı:__ _ _ </b> {adı} \n<B> _ _ _ duration_min} \n <b> _ _ _ _ _ _ _ _ _ _ _ _ tələb: _ _ _ _ < /b > {danışan}",
+ )
+            gözləmə start_timer(
+                azeri porno,
+müddəti_min,
+uzunluq_sek,
+                yekun nəticə,
+CallbackQuery.message.chat.id,
+CallbackQuery.message.from_user.id,
+aglayan,
+)
+
+
+@app.on_callback_query (filtreler.Daimi ifadə ("playlist"))
+asynchronous playlist ( _ , callback sorğu):
+    qlobal get_queue
+    loop = asyncio.get_event_loop()
+    callback_data = zəng sorğusu.məlumat.zolaq()
+    ıd chat = CallbackQuery.message.chat.ıd
+    callback_request = callback_data.split (heç bir, 1)[1]
+Yandex uses essential, analytical, marketing and other cookies. These files are necessary to ensure smooth operation of all Yandex sites and services, they help us remember you and your personal settings. For details, please read our Cookie Policy.
+View my options
+Accept
