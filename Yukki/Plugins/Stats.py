@@ -28,8 +28,8 @@ __HELP__ = """
 
 
 /stats 
-- Check the Stats of Bot.
-- Gets the stat of MongoDb , Assistant, System etc
+- Botun statistikasını yoxlayın.
+- MongoDb, Assistant, System və s. statistik məlumatları əldə edir
 """
 
 
@@ -55,7 +55,7 @@ async def gstats(_, message):
         pass
     uptime = await bot_sys_stats()
     response = await message.reply_photo(
-        photo="Utils/Query.jpg", caption="Getting Stats!"
+        photo="Utils/Query.jpg", caption="Statistika əldə edilir!"
     )
     end = datetime.now()
     resp = (end - start).microseconds / 1000
@@ -77,7 +77,7 @@ Ping: `⚡{resp} ms`
 async def stats_markup(_, CallbackQuery):
     command = CallbackQuery.matches[0].group(1)
     if command == "sys_stats":
-        await CallbackQuery.answer("Getting System Stats...", show_alert=True)
+        await CallbackQuery.answer("Sistem Statistikası əldə edilir...", show_alert=True)
         sc = platform.system()
         arch = platform.machine()
         ram = (
@@ -115,7 +115,7 @@ async def stats_markup(_, CallbackQuery):
 **Storage Left:** {free[:4]} GiB"""
         await CallbackQuery.edit_message_text(smex, reply_markup=stats3)
     if command == "bot_stats":
-        await CallbackQuery.answer("Getting Bot Stats...", show_alert=True)
+        await CallbackQuery.answer("Bot Statistikası əldə edilir...", show_alert=True)
         served_chats = []
         chats = await get_served_chats()
         for chat in chats:
@@ -140,7 +140,7 @@ async def stats_markup(_, CallbackQuery):
         await CallbackQuery.edit_message_text(smex, reply_markup=stats4)
     if command == "mongo_stats":
         await CallbackQuery.answer(
-            "Getting MongoDB Stats...", show_alert=True
+            "MongoDB Statistikası əldə edilir...", show_alert=True
         )
         db = pymongodb
         call = db.command("dbstats")
@@ -171,16 +171,16 @@ async def stats_markup(_, CallbackQuery):
         await CallbackQuery.edit_message_text(smex, reply_markup=stats5)
     if command == "assis_stats":
         await CallbackQuery.answer(
-            "Getting Assistant Stats...", show_alert=True
+            "Assistent Statistikası əldə edilir...", show_alert=True
         )
         await CallbackQuery.edit_message_text(
-            "Getting Assistant Stats.. Please Wait...", reply_markup=stats7
+            "Assistent Statistikası əldə edilir.. Lütfən, gözləyin...", reply_markup=stats7
         )
         groups_ub = channels_ub = bots_ub = privates_ub = total_ub = 0
         async for i in userbot.iter_dialogs():
             t = i.chat.type
             total_ub += 1
-            if t in ["supergroup", "group"]:
+            if t in ["superqrup", "group"]:
                 groups_ub += 1
             elif t == "channel":
                 channels_ub += 1
@@ -202,7 +202,7 @@ async def stats_markup(_, CallbackQuery):
         start = datetime.now()
         uptime = await bot_sys_stats()
         await CallbackQuery.answer(
-            "Getting General Stats...", show_alert=True
+            "Ümumi Statistikanı əldə etmək...", show_alert=True
         )
         end = datetime.now()
         resp = (end - start).microseconds / 1000
