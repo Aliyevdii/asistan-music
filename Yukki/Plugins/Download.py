@@ -25,10 +25,10 @@ __HELP__ = """
 Only for Sudo Users.
 
 /gban [Username or Reply to a user]
-- Ban a user globally in Bot's Served Chats and prevents user from using bot commands.
+- İstifadəçini Botun Xidmət edilən Çatlarında qlobal olaraq qadağan edir və istifadəçinin bot əmrlərindən istifadə etməsinə mane olur.
 
 /ungban [Username or Reply to a user]
-- Remove a user from Bot's GBan List.
+- İstifadəçini Botun GBan Siyahısından çıxarın.
 """
 
 
@@ -65,11 +65,11 @@ async def ytdata(_, CallbackQuery):
 
 
 inl = InlineKeyboardMarkup(
-    [[InlineKeyboardButton(text="Downloading......", callback_data=f"down")]]
+    [[InlineKeyboardButton(text="Endirilir......", callback_data=f"down")]]
 )
 
 upl = InlineKeyboardMarkup(
-    [[InlineKeyboardButton(text="Uploading......", callback_data=f"down")]]
+    [[InlineKeyboardButton(text="Yüklənir......", callback_data=f"down")]]
 )
 
 
@@ -77,15 +77,15 @@ def inl_mark(videoid, user_id):
     buttons = [
         [
             InlineKeyboardButton(
-                text="Download or Upload Failed......", callback_data=f"down"
+                text="Yükləmə və ya Yükləmə uğursuz oldu......", callback_data=f"down"
             )
         ],
         [
             InlineKeyboardButton(
-                text="⬅️  Go Back", callback_data=f"good {videoid}|{user_id}"
+                text="⬅️  Qeri gayıt", callback_data=f"good {videoid}|{user_id}"
             ),
             InlineKeyboardButton(
-                text="🗑 Close Menu", callback_data=f"close2"
+                text="🗑 Menyu bağlayın", callback_data=f"close2"
             ),
         ],
     ]
@@ -115,24 +115,24 @@ async def boom(_, CallbackQuery):
         thumb_image_path = result["thumbnails"][0]["url"]
         channel = channel = result["channel"]["name"]
         fetched = f"""
-🔍**Track Downloaded**
+🔍**Track Endirildi**
 
-❇️**Title:** {title}
+❇️**Başlıq:** {title}
 
-⏳**Duration:** {duration} Mins
-👀**Views:** `{views}`
-🎥**Channel Name:** {channel}
-🔗**Video Link:** [Link]({yturl})
+⏳**Müddət:** {duration} Dəq
+👀**Baxışlar:** `{views}`
+🎥**Kanal Name:** {channel}
+🔗**Video Linki:** [Link]({yturl})
 
-⚡️ __Youtube Inline Download Powered By {MUSIC_BOT_NAME}__"""
+⚡️ Youtube Onlayn Yükləmə Powered by {MUSIC_BOT_NAME}__"""
     filext = "%(title)s.%(ext)s"
-    userdir = os.path.join(os.getcwd(), "downloads", str(user_id))
+    userdir = os.path.join(os.getcwd(), "yükləmələr", str(user_id))
     if not os.path.isdir(userdir):
         os.makedirs(userdir)
     filepath = os.path.join(userdir, filext)
     img = wget.download(thumb_image_path)
     im = Image.open(img).convert("RGB")
-    output_directory = os.path.join(os.getcwd(), "search", str(user_id))
+    output_directory = os.path.join(os.getcwd(), "axtar", str(user_id))
     if not os.path.isdir(output_directory):
         os.makedirs(output_directory)
     thumb_image_path = f"{output_directory}.jpg"
