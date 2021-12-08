@@ -11,7 +11,7 @@ __MODULE__ = "Speedtest"
 __HELP__ = """
 
 /speedtest 
-- Check Server Latency and Speed.
+- Server gecikmə və sürətini yoxlayın.
 
 """
 
@@ -35,9 +35,9 @@ async def statsguwid(_, message):
     try:
         test = speedtest.Speedtest()
         test.get_best_server()
-        m = await m.edit("Running Download SpeedTest")
+        m = await m.edit("Sürət Testini yükləyin")
         test.download()
-        m = await m.edit("Running Upload SpeedTest")
+        m = await m.edit("Yükləmə Sürət Testi işləyir")
         test.upload()
         test.results.share()
         result = test.results.dict()
@@ -46,7 +46,7 @@ async def statsguwid(_, message):
     m = await m.edit("Sharing SpeedTest Results")
     path = wget.download(result["share"])
 
-    output = f"""**Speedtest Results**
+    output = f"""**Speedtest Nəticələri**
     
 <u>**Client:**</u>
 **__ISP:__** {result['client']['isp']}
