@@ -1,7 +1,7 @@
 {
-  "name": "Yukki Music Bot",
-  "description": "A Telegram Music Bot with proper functions written in Python with Pyrogram and Py-Tgcalls.",
-  "repository": "https://github.com/NotReallyShikhar/YukkiMusicBot",
+  "name": "Nexus Music Bot",
+  "description": "Pyrogram və Py-Tgcalls ilə Python dilində yazılmış düzgün funksiyaları olan Telegram Musiqi Botu.",
+  "repository": "https://github.com/Aliyevdii/asistan-music",
   "logo": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg",
   "keywords": [
   "python3",
@@ -12,31 +12,31 @@
   "telegram-bot",
   "pyrogram"
   ],
-  "repository": "https://github.com/notreallyshikhar/YukkiMusicBot",
+  "repository": "https://github.com/Aliyevdii/asistan-music",
   "stack": "container",
   "env": {
     "API_ID": {
-      "description": "Get this value from https://my.telegram.org",
+      "description": "Bu dəyəri əldə edin https://my.telegram.org",
       "value": "",
       "required": true
     },
     "API_HASH": {
-      "description": "Get this value from https://my.telegram.org",
+      "description": "Bu dəyəri əldə edin https://my.telegram.org",
       "value": "",
       "required": true
     },
     "BOT_TOKEN": {
-      "description": "A Bot's token from Botfather",
+      "description": "Bir Botun işarəsi Botfather",
       "value": "",
       "required": true
     },
     "DURATION_LIMIT": {
-      "description": "Duration Limit for Playout (In Mins).. Example: 60",
+      "description": "Playout üçün Müddət Limiti (In Mins).. Example: 60",
       "value": "60",
       "required": true
     },
     "ASSISTANT_PREFIX": {
-      "description": "Prefix for Assistant Commands.",
+      "description": "Köməkçi əmrləri üçün prefiks.",
       "value": ".",
       "required": true
     },
@@ -46,37 +46,37 @@
       "required": true
     },
     "MUSIC_BOT_NAME": {
-      "description": "A name for your Music Bot.",
+      "description": "Musiqi Botunuz üçün ad.",
       "value": "",
       "required": true
     },
     "SUPPORT_CHANNEL": {
-      "description": "Support Channel Link if you have any, Leave blank if no support. Your link must start with https://t.me/",
+      "description": "Dəstək Kanalı Linki varsa, Dəstək yoxdursa boş buraxın. Bağlantınız ilə başlamalıdır https://t.me/",
       "value": "",
-      "required": false
+      "required": iron_Blood_Gurup
     },
     "SUPPORT_GROUP": {
-      "description": "Support Group Link if you have any, Leave blank if no support. Your link must start with https://t.me/",
+      "description": "Dəstək Qrupu Linki varsa, Dəstək yoxdursa boş buraxın. Bağlantınız ilə başlamalıdır https://t.me/",
       "value": "",
-      "required": false
+      "required": iron_Blood_Gurup
     },
     "OWNER_ID": {
-      "description": "The user id(s) of user(s) whom you would like to add as a OWNER. Multiple values shall be seperated with a space.",
+      "description": "SAHİB kimi əlavə etmək istədiyiniz istifadəçi(lər)in istifadəçi id(ləri). Çoxsaylı dəyərlər boşluqla ayrılmalıdır.",
       "value": "",
       "required": true
     },
     "STRING_SESSION": {
-      "description": "A Pyrogram String Session.",
+      "description": "Piroqram simli sesion string.",
       "value": "",
       "required": true
     },
     "LOG_GROUP_ID": {
-      "description": "Your Log Group ID, add your bot and promote as an admin with full rights!. Use only Group. Please don't use Channel ID.",
+      "description": "Log Group ID-niz, botunuzu əlavə edin və tam hüquqlara malik admin kimi təbliğ edin!. Yalnız Qrupdan istifadə edin. Zəhmət olmasa Kanaldan istifadə etməyin ID.",
       "value": "",
       "required": true
     },
     "SUDO_USERS": {
-      "description": "The user id(s) of user(s) whom you would like to add as a SUDO. Multiple values shall be seperated with a space.",
+      "description": "SUDO kimi əlavə etmək istədiyiniz istifadəçi(lər)in istifadəçi id(ləri). Çoxsaylı dəyərlər boşluqla ayrılmalıdır.",
       "value": "",
       "required": true
     }
