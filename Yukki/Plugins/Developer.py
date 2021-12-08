@@ -1,3 +1,4 @@
+
 import os
 import re
 import subprocess
@@ -232,3 +233,241 @@ async def shellrunner(_, message: Message):
             message,
             text=f"**INPUT:**\n```{escape(text)}```\n\n**OUTPUT: **\n`No output`",
         )
+
+os idxal
+təkrar idxal
+idxal subprocess
+sys idxal
+idxal iz
+asyncio Import create_subprocess_shell, yuxu, subprocess
+html idxal escape
+ınspect idxal getfullargspec from
+I-çıxış idxal StringİO
+vaxt idxal
+
+pirogramdan filtrləri idxal edin
+pirogramdan.səhvlər dəyişdirilməmiş mesajı idxal et
+pirogramdan.idxal mesaj növləri, ReplyKeyboardMarkup
+
+Yukki ' den SUDOERS, userbot idxal edin
+Yukka ' dan.Kommunal xidmətlər.idxal add_task vəzifələri, rm_task
+
+# Qiymətləndirilməsi modulu və SH
+
+__MODULU__ = "Yayım"
+__ Yardım__="""
+
+** Qeyd:**
+Yalnız Sudo istifadəçilər üçün.
+
+
+/ yayım [mesaj və ya mesaj cavab] 
+- Xidmət Bot sohbetler hər hansı bir mesaj yayımlanacaq.
+
+/ broadcast_pin [mesaj və ya mesaj cavab] 
+- Chat mesaj pinning [reports aradan] ilə Bot Xidmət sohbetler hər hansı bir mesaj yayımlanacaq.
+
+/ broadcast_pin_loud [mesaj və ya mesaj cavab] 
+- Chat mesaj pinning [bildirişlərin daxil] ilə Bot Xidmət sohbetler hər hansı bir mesaj yayımlanacaq.
+
+"""
+
+m = Yox
+p = çap
+r = Yox
+ox = Lambda x: (x.mətn, əgər dəyər varsa (x, mesaj) başqa cür") + " \`n`'"
+
+
+asynchronous definition (mesaj: mesaj, **kvargi):
+    funksiyası = (
+        (msg.edit_text əgər MSG.from_user.is_self digər msg.cavab)
+        mesaj varsa.ot_poluser
+        daha mesaj.cavab
+    )
+    dəqiqləşdirilməsi = getfullargspec(funksiyası.__bükülmüş__).arqumentlər
+    geri qaytarma (**{k: k üçün v, v kuvargs-də.ıtems () əgər k dəqiqləşdirilməsi})
+
+
+asynchronous aexec qorunması (kod, müştəri, mesaj):
+    icraçı direktor(
+        "asinxron tərif _ _ aexec (müştəri, mesaj):"
+        + "".qoşulmaq(f"\n {a}" üçün bir kod.split("\n"))
+    )
+    qaytarılması gözləyir yerli sakinləri()["__aexec"] (müştəri, mesaj)
+
+
+asynchronous iter_edit tərifi (mesaj: mesaj, mətn: str):
+    userbot.iter_history m üçün asinxron(message.chat.id):
+
+        # Cavablar tapılmazsa, cavab verin
+        əgər m. message_id = = mesaj.message_id:
+            0 qaytarılması
+
+        m.from_user yoxsa m.mətn və ya m.reply_to_message yoxdur:
+            davam
+
+        əgər (
+(m.reply_to_message.message_id==mesajı.mesaj id)
+            və (m.from_user.id == message.from_user.ıd)
+            və (m mətnində" tərcümə")
+        ):
+            nümunə:
+                geri gözləyir m. redaktə etmək (mətn)
+            dəyişdirilməmiş mesajlar istisna olmaqla:
+                qaytar
+
+
+@userbot.on_message @xüsusi mesaj(
+    filters.istifadəçi (istifadəçilər)
+    & ~filtreler.yönlendirileceksiniz
+    & ~filtreler.via_bot
+    & ~filtreler.redaktə
+    &filtreler.komanda ("qiymətləndirmə"),
+)
+artist asynchronous qorunması (müştəri, mesaj: mesaj):
+    qlobal m, p, r
+ əgər len (mesaj.komanda) < 2:
+        qaytarma gözləyir EOR (mesaj, mətn = "yerinə yetirmək üçün lazım olan komanda")
+
+    nümunə:
+        cmd = mesaj.mətn.split ("", maxsplit=1)[1]
+    index səhv istisna olmaqla:
+        gözləyən mesajı geri qaytarın.(sil)
+
+    mesaj varsa.chat.type = = "kanal":
+        qaytar
+
+    m = mesajı
+    p = çap
+
+    # Klaviatura giriş hücumları qarşısını almaq üçün
+    əgər M. reply_to_message:
+        r = m.cavab mesaj
+        əgər r.reply_markup və isinstance (r.reply_markup, ReplyKeyboardMarkup):
+            geri gözləyir eor (m, mətn= "TƏHLÜKƏLİDİR!")
+    status = Xeyr
+old_stderr = sys.stderr
+    old_stdout = sys.standart
+çıxış yönləndirilmiş çıxış = sys.standart nəticə = StringİO()
+    yönlendirilen_error = sys.stderr = StringIO()
+    stdout, stderr, exc = Xeyr, yox
+cəhdlər:
+        tapşırıq, task_ıd = tapşırıq əlavə etməyi gözləyir(
+            aexec,
+            "Qiymətləndirmə",
+cmd,
+müştəri,
+m,
+)
+
+        mətn = f " {ox(")} gözləyən vəzifə " {tapşırıq identifikatoru}"
+        heç bir mesaj yoxdur.edit_date:
+            status = gözləmə m. cavab (mətn, sitat = həqiqət)
+
+        vəzifə gözləyir
+ e kimi istisna istisna olmaqla:
+        e = geri izləmə.format_exs()
+        çap (e)
+        exc = e.ayırıcı xətləri () [-1]
+
+    gözləmə rm_task()
+
+    standart çıxış = yönləndirilmiş çıxış . getvalue()
+    stderr = yönləndirilmiş səhv.getvalue()
+    sys.stdout = old_stdout
+sys.stderr = old_stderr
+    qiymətləndirmə = ""
+    əgər:
+        qiymətləndirmə = istisna
+    Elif stderr:
+        qiymətləndirmə = stderr
+    standart nəticə elif:
+        qiymətləndirmə = standart
+hələ nəticə:
+        qiymətləndirmə = "Uğur"
+
+    final_output = f"** * * * \ n ' {escape(hesab.zolaq ()}`"
+
+    əgər len(son nəticə) > 4096:
+        fayl adı = "çıxış.txt "
+        out_file kimi açıq (fayl adı, "L+", encoding="utf8") ilə:
+            giden fayl.yazmaq(str(qiymətdir.zolaq ())
+        mesajı gözləyir.reply_document(
+            sənəd= fayl adı,
+            imza="`→`\n**əlavə sənəd**",
+            quote= Yalan,
+)
+        os.sil (faylın adı)
+        əgər status:
+            gözləmə vəziyyəti.(sil)
+        qaytar
+
+     Giriş redaktə əgər # edit çıxış
+    mesaj varsa.edit_date:
+        status_ = ıter_edit ' i gözləyin (mesaj, son nəticə)
+        əgər status_ = = 0:
+            gözləyən mesajı qaytarın.cavab (yekun_otter, sitat = həqiqət)
+        qaytarın
+ heç bir status əgər . from_user:
+        status = istifadəçi gözləyir. get_messages(status.chat.id, status. mesaj ID)
+    gözləmə eor (status, mətn = yekun nəticə quote=True)
+
+
+@userbot.on_message @xüsusi mesaj(
+    filters.istifadəçi (istifadəçilər)
+    & ~filtreler.yönlendirileceksiniz
+    & ~filtreler.via_bot
+    & ~filtreler.redaktə
+    &filtreler.komanda ("sh"),
+)
+asynchronous shell qoruyucu ( _ , mesaj: mesaj):
+    əgər len (mesaj.komanda) < 2:
+        geri EOR gözləyir (mesaj, mətn="**istifadə:**\n/sh git pull")
+
+    mesaj varsa.reply_to_message:
+        r = bir mesaj.cavab_to_mession
+        əgər r.reply_markup və isinstance(
+            r.reply_markup,
+ReplyKeyboardMarkup,
+):
+            geri gözləyir eor (yazı, mətn= "TƏHLÜKƏLİDİR!")
+    nəticə = ""
+    mətn = mesaj.mətn.ayrılıq (No 1)[1]
+    mətn "\n" əgər:
+        kod = mətn.split("\n")
+        shell = " ".qoşulmaq (kod)
+    hələ:
+        shell = mətn
+    proses = gözləyir create_subprocess_shell(
+        qabıq,
+standart nəticə = subprocess.boru,
+        stderr = subprocess.boru,
+    )
+    çıxış, səhv = prosesi gözləyir.əlaqə()
+    səhv varsa:
+        bug = f "* * Input: * * \ n " {escape (mətn)}`\n\n**Bug:**\n`{səhv.decoding ('utf-8')}`"
+        geri gözləyir eor (yazı, mətn = səhv)
+    çıxış + = çıxış.decoding ("utf-8")
+    nəticə += "\n"
+    əgər str(nəticə)== "\n":
+        nəticə = Yox
+ əgər nəticə:
+        əgər len(çıxış) > 4096:
+            açıq ("çıxış.txt", " l+") bir fayl olaraq:
+                fayl.qeyd (çıxış)
+            mesajı gözləyir.reply_document(
+                "output.txt", imza=f"{escape(mətn)}"
+            )
+            OS qaytarın.sil ("çıxış.txt ")
+        gözləyin və ya(
+            mesaj,
+            mətn = f "* * giriş: * * \ n "{escape(mətn)} " \ n \ n * * nəticə: * * \ n`{(nəticə)}`",
+)
+    hələ:
+        qaytarılması sizi gözləyir və ya(
+            mesaj,
+            mətn=f "* * Input: * * \ n "{escape(mətn)} "\ n \ n * * nəticə: * * \ N 'No çıxış'",
+)
+Yandex uses essential, analytical, marketing and other cookies. These files are necessary to ensure smooth operation of all Yandex sites and services, they help us remember you and your personal settings. For details, please read our Cookie Policy.
+View my options
+Accept
